@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Models;
+namespace App\Models; 
 
 use Illuminate\Database\Eloquent\Model;
-
-class KutipanMotivasi extends Model
+class KutipanMotivasi extends Model 
 {
-    protected $fillable = [
+    protected $table = 'motivations';
+   
+
+    protected $fillable = [  
         'guru_id',
-        'image_url',
+        'image_url',  
         'teks_kutipan',
         'sumber',
     ];

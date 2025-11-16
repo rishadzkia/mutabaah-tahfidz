@@ -6,29 +6,35 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Filament\Models\Contracts\HasAvatar;
+use Illuminate\Support\Facades\Storage;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasAvatar
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
-    /**
+    /** 
      * The attributes that are mass assignable.
      *
      * @var list<string>
      */
+    protected $table = 'users';
     protected $fillable = [
         'name',
         'email',
-        'password_hash',
+        'password',
         'role',
+        'avatar_url',
     ];
 
-    public function guru(){
+    public function guru()
+    {
         return $this->hasOne(Guru::class);
     }
 
-    public function siswa(){
+    public function siswa()
+    {
         return $this->hasOne(Siswa::class);
     }
 
@@ -53,5 +59,11 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function getFilamentAvatarUrl(): ?string
+    {
+        // $avatarColumn = config('filament-edit-profile.avatar_column', 'avatar_url');
+        return $this->avatar_url ? Storage::url($this->avatar_url) : null;
     }
 }

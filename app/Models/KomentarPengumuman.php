@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class KomentarPengumuman extends Model
 {
-    protected $fillable = [
+    protected $table = 'comments';
+    protected $fillable = [ 
         'pengumuman_id',
         'siswa_id',
-        'komentar',
-
-    ];
+        'komentar', 
+    ]; 
 
     public function pengumuman(){
         return $this->belongsTo(Pengumuman::class);

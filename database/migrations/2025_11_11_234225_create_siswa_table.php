@@ -25,6 +25,7 @@ return new class extends Migration
                 ->onDelete('set null');
             $table->string('kelas', 50)->nullable();
             $table->integer('angkatan')->nullable();
+            $table->boolean('is_siswa')->default(false);
 
             $table->timestamps();
 

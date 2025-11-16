@@ -4,15 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Hafalan extends Model
+class Hafalan extends Model 
 {
+    protected $table = 'memorizes';
     protected $fillable = [
-        'siswa_id',
+        'siswa_id', 
         'guru_id',
-        'surah',
+        'surah', 
         'juz',
         'ayat',
-        'status',
+        'status', 
 
     ];
 
@@ -20,7 +21,7 @@ class Hafalan extends Model
         return $this->belongsTo(Siswa::class);
     }
 
-    public function guruMenilai(){
-        return $this->belongsTo(Guru::class);    
-    }
+    // public function guruMenilai(){
+    //     return $this->belongsTo(Guru::class);    
+    // }
 }

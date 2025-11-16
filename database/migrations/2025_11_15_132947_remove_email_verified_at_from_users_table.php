@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('guru_mark_siswa', function (Blueprint $table) {
-            $table->foreignId('guru_id')->constrained('guru')->onDelete('cascade');
-            $table->foreignId('siswa_id')->constrained('siswa')->onDelete('cascade');
-
-            $table->unique(['guru_id', 'siswa_id']);
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('email_verified_at');
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('guru_mark_siswa');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('email_verified_at');
+        });
     }
 };
