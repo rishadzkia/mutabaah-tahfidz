@@ -18,7 +18,7 @@ class HafalanResource extends Resource
 {
     protected static ?string $model = Hafalan::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentPlus;
 
     protected static ?string $recordTitleAttribute = 'juz';
     protected static ?string $modelLabel = 'Input Hafalan';

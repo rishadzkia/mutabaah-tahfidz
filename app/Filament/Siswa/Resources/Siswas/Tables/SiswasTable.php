@@ -3,8 +3,10 @@
 namespace App\Filament\Siswa\Resources\Siswas\Tables;
 
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
@@ -17,7 +19,8 @@ class SiswasTable
     {
         return $table
             ->columns([
-                TextColumn::make('user_id')
+                TextColumn::make('user.name')
+                    ->label('Nama Siswa')
                     ->numeric()
                     ->sortable(),
                 // TextColumn::make('guru_id')
@@ -28,7 +31,8 @@ class SiswasTable
                 TextColumn::make('angkatan')
                     ->numeric()
                     ->sortable(),
-                ImageColumn::make('foto'),
+                ImageColumn::make('image')
+                    ->label('Foto'),
                 // IconColumn::make('is_siswa')
                 //     ->boolean(),
                 TextColumn::make('created_at')
@@ -45,6 +49,8 @@ class SiswasTable
             ])
             ->recordActions([
                 EditAction::make(),
+                ViewAction::make(),
+                DeleteAction::make(),
             ]);
             // ->toolbarActions([
             //     BulkActionGroup::make([

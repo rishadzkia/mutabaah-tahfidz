@@ -15,11 +15,13 @@ class KutipanMotivasisTable
     {
         return $table
             ->columns([
-                TextColumn::make('guru_id')
-                    ->numeric()
-                    ->sortable(),
+            TextColumn::make('user.name')
+              
+                ->sortable(),
                 ImageColumn::make('image_url'),
                 TextColumn::make('sumber')
+                    ->searchable(),
+                TextColumn::make('teks_kutipan')
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()

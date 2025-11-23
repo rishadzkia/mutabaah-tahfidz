@@ -8,17 +8,18 @@ use App\Filament\Guru\Resources\KomentarPengumumen\Pages\ListKomentarPengumumen;
 use App\Filament\Guru\Resources\KomentarPengumumen\Schemas\KomentarPengumumanForm;
 use App\Filament\Guru\Resources\KomentarPengumumen\Tables\KomentarPengumumenTable;
 use App\Models\KomentarPengumuman;
+use App\Models\Pengumuman; 
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
-use Filament\Tables\Table;
+use Filament\Tables\Table; 
 
 class KomentarPengumumanResource extends Resource
 {
-    protected static ?string $model = KomentarPengumuman::class;
+    protected static ?string $model = Pengumuman::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedChatBubbleLeftRight;
 
     protected static ?string $recordTitleAttribute = 'komentar';
     protected static ?string $modelLabel = 'Komentar Siswa';
@@ -27,7 +28,8 @@ class KomentarPengumumanResource extends Resource
     public static function form(Schema $schema): Schema
     {
         return KomentarPengumumanForm::configure($schema);
-    }
+        
+    } 
 
     public static function table(Table $table): Table
     {

@@ -9,16 +9,18 @@ use App\Filament\Guru\Resources\Pengumumen\Schemas\PengumumanForm;
 use App\Filament\Guru\Resources\Pengumumen\Tables\PengumumenTable;
 use App\Models\Pengumuman;
 use BackedEnum;
+use Filament\Facades\Filament;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class PengumumanResource extends Resource
 {
     protected static ?string $model = Pengumuman::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedMegaphone;
 
     protected static ?string $recordTitleAttribute = 'isi';
     protected static ?string $modelLabel = 'Pengumuman';
@@ -48,5 +50,17 @@ class PengumumanResource extends Resource
             'create' => CreatePengumuman::route('/create'),
             'edit' => EditPengumuman::route('/{record}/edit'),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        $user = Filament::auth()->user();
+
+        if (!$user || !$user->guru) {
+            return parent::getEloquentQuery()->whereRaw('1 = 0');
+        }
+
+        return parent::getEloquentQuery()
+            ->where('guru_id', $user->guru->id);
     }
 }

@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Siswa extends Model
 {
-    protected $table = 'students';
+    protected $table = 'siswa';
     protected $fillable = [
         'user_id',
         'kelas',
         'angkatan',
-        'guru_id',
+        'guru_id', 
+        'image',
+        
         'is_siswa',
     ];
 
@@ -20,10 +22,12 @@ class Siswa extends Model
     ];
 
     public function user(){
-        return $this->belongsTo(User::class);
-    } 
+        return $this->belongsTo(User::class, 'user_id');
+    }
 
-   
-
+    public function hafalan()
+    {
     
+        return $this->hasMany(Hafalan::class, 'siswa_id');
+    }
 }

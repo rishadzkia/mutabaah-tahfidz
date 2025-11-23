@@ -18,10 +18,7 @@ return new class extends Migration
             $table->foreignId('siswa_id')
                 ->constrained('siswa') 
                 ->onDelete('cascade');
-            $table->foreignId('guru_id')
-                ->nullable()
-                ->constrained('guru')
-                ->onDelete('set null');
+           
             $table->string('surah', 100);
             $table->integer('juz');
             $table->string('ayat', 50);

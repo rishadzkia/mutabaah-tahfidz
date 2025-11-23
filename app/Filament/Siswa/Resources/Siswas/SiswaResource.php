@@ -21,8 +21,8 @@ class SiswaResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'kelas';
-    protected static ?string $modelLabel = 'Profil Saya';
-    protected static ?string $pluralModelLabel = 'Profil Saya';
+    protected static ?string $modelLabel = 'Data Diri Siswa';
+    protected static ?string $pluralModelLabel = 'Data Diri Siswa';
 
     public static function form(Schema $schema): Schema
     {

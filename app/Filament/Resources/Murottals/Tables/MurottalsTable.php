@@ -3,8 +3,10 @@
 namespace App\Filament\Resources\Murottals\Tables;
 
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -18,8 +20,10 @@ class MurottalsTable
                     ->searchable(),
                 TextColumn::make('surah')
                     ->searchable(),
+                
                 TextColumn::make('file_url')
-                    ->searchable(),
+                ->label('Audio')
+                ->view('filament.tables.columns.audio-player'),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -34,6 +38,8 @@ class MurottalsTable
             ])
             ->recordActions([
                 EditAction::make(),
+                DeleteAction::make(),
+                ViewAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

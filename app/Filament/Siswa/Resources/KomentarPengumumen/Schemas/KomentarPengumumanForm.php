@@ -13,9 +13,9 @@ class KomentarPengumumanForm
         return $schema
             ->components([
                 TextInput::make('pengumuman_id')
-                    ->required()
+                    ->disabled()
                     ->numeric(),
-                TextInput::make('siswa_id')
+                TextInput::make('siswa.user.name')
                     ->required()
                     ->numeric(),
                 Textarea::make('komentar')

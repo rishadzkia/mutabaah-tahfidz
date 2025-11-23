@@ -6,8 +6,13 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
+use GuzzleHttp\Psr7\Query;
+use Illuminate\Database\Eloquent\Builder;
 
 class HafalansTable
 {
@@ -15,8 +20,10 @@ class HafalansTable
     {
         return $table
             ->columns([
-                TextColumn::make('siswa_id')
+                TextColumn::make('siswa.user.name')
+                    ->label('Nama Siswa')
                     ->numeric()
+                    ->searchable()
                     ->sortable(),
                 // TextColumn::make('guru_id')
                 //     ->numeric()
@@ -30,7 +37,8 @@ class HafalansTable
                     ->searchable(),
                 TextColumn::make('status'),
                 TextColumn::make('created_at')
-                    ->dateTime()
+                    ->label('Waktu Dibuat')
+                    ->date('d F Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
@@ -38,9 +46,12 @@ class HafalansTable
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+
             ->filters([
-                //
+              
+
             ])
+
             ->recordActions([
                 EditAction::make(),
                 DeleteAction::make(),

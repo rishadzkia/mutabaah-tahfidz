@@ -18,7 +18,7 @@ class HafalanResource extends Resource
 {
     protected static ?string $model = Hafalan::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBookOpen;
 
     protected static ?string $recordTitleAttribute = 'juz';
     protected static ?string $modelLabel = 'Data Hafalan Siswa';
@@ -48,5 +48,10 @@ class HafalanResource extends Resource
             'create' => CreateHafalan::route('/create'),
             'edit' => EditHafalan::route('/{record}/edit'),
         ];
+    }
+// Agar guru tidak bisa menambahkan data hafalan
+    public static function canCreate(): bool
+    {
+        return false;
     }
 }

@@ -18,8 +18,7 @@ class MurottalResource extends Resource
 {
     protected static ?string $model = Murottal::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedMusicalNote;
     protected static ?string $recordTitleAttribute = 'qari_name';
     protected static ?string $modelLabel = 'Murottal Surah Pilihan';
     protected static ?string $pluralModelLabel = 'Murottal Surah Pilihan';

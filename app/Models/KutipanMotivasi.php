@@ -9,13 +9,13 @@ class KutipanMotivasi extends Model
    
 
     protected $fillable = [  
-        'guru_id',
+        'user_id',
         'image_url',  
         'teks_kutipan',
         'sumber',
     ];
 
-    public function motivasiGuru(){
-        return $this->belongsTo(Guru::class);
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

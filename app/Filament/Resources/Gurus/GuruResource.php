@@ -8,17 +8,19 @@ use App\Filament\Resources\Gurus\Pages\ListGurus;
 use App\Filament\Resources\Gurus\Schemas\GuruForm;
 use App\Filament\Resources\Gurus\Tables\GurusTable;
 use App\Models\Guru;
+use App\Models\User;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class GuruResource extends Resource
 {
-    protected static ?string $model = Guru::class;
+    protected static ?string $model = User::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedAcademicCap;
 
     protected static ?string $recordTitleAttribute = 'mapel_diampu';
   
@@ -58,5 +60,11 @@ class GuruResource extends Resource
             'create' => CreateGuru::route('/create'),
             'edit' => EditGuru::route('/{record}/edit'),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+        ->where('role', 'guru');
     }
 }

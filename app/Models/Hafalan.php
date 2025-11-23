@@ -5,23 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Hafalan extends Model 
-{
-    protected $table = 'memorizes';
+{ 
+    protected $table = 'hafalan';
     protected $fillable = [
         'siswa_id', 
-        'guru_id',
+        'guru_id', 
         'surah', 
         'juz',
         'ayat',
-        'status', 
-
+        'status',
+        // 'is_siswa',
+        'created_at',
+ 
     ];
 
-    public function siswaInput(){
-        return $this->belongsTo(Siswa::class);
+    public function siswa(){
+        return $this->belongsTo(\App\Models\Siswa::class, 'siswa_id');
     }
-
-    // public function guruMenilai(){
-    //     return $this->belongsTo(Guru::class);    
+    // public function user()
+    // {
+    //     return $this->siswa->user();
     // }
 }

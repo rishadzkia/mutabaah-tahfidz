@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Murottal extends Model 
 {
-   protected $table = 'murottals';
+   protected $table = 'murottal';
    protected $fillable = [
     'qari_name', 
     'surah',

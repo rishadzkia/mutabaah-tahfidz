@@ -11,12 +11,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        // Middleware global (kalau mau)
-
-        // Alias middleware (optional)
+       
         $middleware->alias([
             'guru' => \App\Http\Middleware\GuruMiddleware::class,
-            'siswa' => \App\Http\Middleware\SiswaMiddleware::class,
+            'siswa' => \App\Http\Middleware\RoleMiddleware::class,
+            'admin' => \App\Http\Middleware\OnlyAdmin::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Murottals\Schemas;
 
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -15,8 +16,17 @@ class MurottalForm
                     ->required(),
                 TextInput::make('surah')
                     ->required(),
-                TextInput::make('file_url')
-                    ->required(),
+               
+            FileUpload::make('file_url') 
+                ->label('Unggah File Audio Murottal')
+                ->disk('public') 
+                ->directory('audio/murottal') 
+                ->acceptedFileTypes(['audio/mpeg', 'audio/mp3', 'audio/wav']) 
+                ->maxSize(10240) 
+                ->required(),
+               
+                
+               
             ]);
     }
 }

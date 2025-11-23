@@ -1,5 +1,7 @@
-<h2>Selamat Datang, Guru {{ Auth::user()->name }}</h2>
-<form method="POST" action="{{ route('logout') }}">
-    @csrf
-    <button type="submit">Logout</button>
-</form>
+@extends('layouts.dashboard')
+
+@section('title', 'Dashboard Guru')
+
+@section('content')
+    <livewire:guru.dashboard />
+@endsection

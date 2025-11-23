@@ -14,21 +14,30 @@ class HafalanForm
             ->components([
                 TextInput::make('siswa_id')
                     ->required()
+                    ->disabled()
                     ->numeric(),
-                TextInput::make('guru_id')
-                    ->numeric()
-                    ->default(null),
+                // TextInput::make('guru_id')
+                //     ->numeric()
+                //     ->disabled()
+                //     ->default(null),
                 TextInput::make('surah')
+                ->disabled()
                     ->required(),
                 TextInput::make('juz')
                     ->required()
+                    ->disabled()
                     ->numeric(),
                 TextInput::make('ayat')
+                ->disabled()
                     ->required(),
-                Select::make('status')
-                    ->options(['disetor' => 'Disetor', 'lulus' => 'Lulus', 'perbaikan' => 'Perbaikan'])
-                    ->default('disetor')
-                    ->required(),
+            Select::make('status')
+                ->label('Status Penilaian')
+                ->options([
+                    'disetor' => 'Disetor',
+                    'lulus' => 'Lulus',
+                    'perbaikan' => 'Perbaikan',
+                ])
+                ->required(),
             ]);
     }
 }

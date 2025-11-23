@@ -17,12 +17,13 @@ use Filament\Tables\Table;
 class GuruResource extends Resource
 {
     protected static ?string $model = Guru::class;
+    protected static ?string $modelLabel = 'Data Guru';
+    protected static ?string $pluralModelLabel = 'Data Guru';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'mapel_diampu';
-    protected static ?string $modelLabel = 'Profil Saya';
-    protected static ?string $pluralModelLabel = 'Profil Saya';
+    
 
     public static function form(Schema $schema): Schema
     {

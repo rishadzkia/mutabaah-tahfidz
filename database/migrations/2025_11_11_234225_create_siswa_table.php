@@ -23,9 +23,9 @@ return new class extends Migration
                 ->nullable()
                 ->constrained('guru')
                 ->onDelete('set null');
+            $table->string('image')->nullable(); 
             $table->string('kelas', 50)->nullable();
             $table->integer('angkatan')->nullable();
-            $table->boolean('is_siswa')->default(false);
 
             $table->timestamps();
 

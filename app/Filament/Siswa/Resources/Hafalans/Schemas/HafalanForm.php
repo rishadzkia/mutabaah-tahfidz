@@ -8,30 +8,40 @@ use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
 class HafalanForm
-{
+{ 
     public static function configure(Schema $schema): Schema
     {
+
+       
         return $schema
             ->components([
-     
-                Hidden::make('siswa_id')
-                    ->default(fn() => Filament::auth()->user()->siswa->id), 
+            TextInput::make('nama_siswa')
+                ->default(fn() => optional(Filament::auth()->user())->name) 
+                ->disabled()
+                ->label('Nama Siswa'),
 
-     
-                // Hidden::make('guru_id')->default(null),
+           
+            Hidden::make('siswa_id')
+                ->default(fn() => optional(Filament::auth()->user()->siswa)->id), 
 
-                TextInput::make('surah')
+
+            // Hidden::make('guru_id')->default(null), 
+
+            TextInput::make('surah')
                     ->required(),
 
-                TextInput::make('juz')
+                TextInput::make('juz') 
                     ->required()
-                    ->numeric(),
+                    ->numeric(), 
 
                 TextInput::make('ayat')
                     ->required(),
 
                 Hidden::make('status')
-                    ->default('disetor'), 
+                    ->default('disetor'),
+            TextInput::make('created_at')
+                ->label('Dibuat Tanggal')
+                ,
             ]);
     }
 }

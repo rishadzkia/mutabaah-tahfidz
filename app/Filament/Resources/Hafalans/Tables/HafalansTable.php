@@ -14,12 +14,12 @@ class HafalansTable
     {
         return $table
             ->columns([
-                TextColumn::make('siswa_id')
+                TextColumn::make('siswa.user.name')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('guru_id')
-                    ->numeric()
-                    ->sortable(),
+                // TextColumn::make('guru_id')
+                //     ->numeric()
+                //     ->sortable(),
                 TextColumn::make('surah')
                     ->searchable(),
                 TextColumn::make('juz')
@@ -41,7 +41,7 @@ class HafalansTable
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                // EditAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

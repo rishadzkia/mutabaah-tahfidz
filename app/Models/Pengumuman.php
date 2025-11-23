@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pengumuman extends Model 
 {
-   protected $table = 'announcements';
+   protected $table = 'pengumuman';
    protected $fillable = [  
     'guru_id',
     'judul', 
     'isi', 
    ]; 
 
-   public function guruBeriPengumuman(){  
-    return $this->belongsTo(Guru::class); 
+   public function guru(){  
+    return $this->belongsTo(Guru::class, 'guru_id'); 
    }  
 
 } 

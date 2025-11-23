@@ -6,18 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class KomentarPengumuman extends Model
 {
-    protected $table = 'comments';
-    protected $fillable = [ 
+    protected $table = 'komentar_pengumuman';
+    protected $fillable = [
         'pengumuman_id',
         'siswa_id',
-        'komentar', 
-    ]; 
+        'komentar',
+    ];
 
-    public function pengumuman(){
-        return $this->belongsTo(Pengumuman::class);
+    public function pengumuman()
+    {
+        return $this->belongsTo(Pengumuman::class, 'pengumuman_id');
     }
 
-    public function siswaBerkomentar(){
-        return $this->belongsTo(Siswa::class);
+    public function siswa()
+    {
+        return $this->belongsTo(Siswa::class, 'siswa_id');
     }
 }

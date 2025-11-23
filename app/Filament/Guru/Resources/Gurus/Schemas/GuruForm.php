@@ -3,6 +3,7 @@
 namespace App\Filament\Guru\Resources\Gurus\Schemas;
 
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -18,7 +19,8 @@ class GuruForm
                 TextInput::make('mapel_diampu')
                     ->default(null),
                 DatePicker::make('mulai_kerja'),
-                TextInput::make('foto_url')
+                FileUpload::make('foto_url')
+                    ->image()
                     ->default(null),
             ]);
     }

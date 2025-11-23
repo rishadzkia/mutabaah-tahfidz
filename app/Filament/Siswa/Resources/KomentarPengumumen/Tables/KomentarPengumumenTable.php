@@ -2,10 +2,12 @@
 
 namespace App\Filament\Siswa\Resources\KomentarPengumumen\Tables;
 
+use App\Filament\Guru\Resources\KomentarPengumumen\Pages\CreateKomentarPengumuman;
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\TextColumn; 
 use Filament\Tables\Table;
 
 class KomentarPengumumenTable
@@ -14,10 +16,13 @@ class KomentarPengumumenTable
     {
         return $table
             ->columns([
-                TextColumn::make('pengumuman_id')
-                    ->numeric()
+                TextColumn::make('pengumuman.isi')
+                  
                     ->sortable(),
-                TextColumn::make('siswa_id')
+                TextColumn::make('komentar')
+                 
+                    ->sortable(),
+                TextColumn::make('siswa.user.name')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('created_at')
@@ -33,7 +38,12 @@ class KomentarPengumumenTable
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                Action::make('buatKomentar')
+                    ->label('Tambah Komentar')
+                    ->icon('heroicon-o-plus')
+                    ->url(fn($record) => CreateKomentarPengumuman::getUrl([
+                        'pengumuman.isi' => $record->id, // kalau mau passing ID
+                    ])),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
