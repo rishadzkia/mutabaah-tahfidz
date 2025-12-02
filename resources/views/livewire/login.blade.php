@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +7,9 @@
 
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Arial, sans-serif;  
             background: #f0f2f5;
-            display: flex;
+            display: flex; 
             justify-content: center;
             align-items: center;
             height: 100vh;

@@ -3,6 +3,7 @@
 namespace App\Livewire\Guru\Pengumuman;
 
 use App\Models\Pengumuman;
+use Illuminate\Http\Request;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 

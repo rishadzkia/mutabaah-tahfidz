@@ -6,40 +6,55 @@ use App\Models\Hafalan;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 
 class Show extends Component
 {
     public $search = '';
-    public $hafalan = [];
+    public $filterMonth = '';
+    public $filterDate = '';
 
     #[Layout('components.layouts.base')]
     public function render()
     {
-        $this->hafalan = Hafalan::with(['siswa.user'])
+        $query = Hafalan::with(['siswa.user'])
             ->whereHas('siswa.user', function ($q) {
                 $q->where('name', 'like', '%' . $this->search . '%');
-            })
-            ->get();
+            });
+
+        // Filter bulan 
+        if ($this->filterMonth) {
+            $query->whereMonth('created_at', $this->filterMonth);
+        }
+
+        // Filter tanggal spesifik
+        if ($this->filterDate) {
+            $query->whereDate('created_at', $this->filterDate);
+        }
+
+        $hafalan = $query->get();
 
         return view('livewire.guru.hafalan.show', [
-            'hafalan' => $this->hafalan
+            'hafalan' => $hafalan
         ]);
-    }
-
-    public function mount()
-    {
-
-        $this->hafalan = Hafalan::with(['siswa.user'])->get();
     }
 
     public function exportPDF()
     {
-
-        $data = Hafalan::with(['siswa.user'])
+        $query = Hafalan::with(['siswa.user'])
             ->whereHas('siswa.user', function ($q) {
                 $q->where('name', 'like', '%' . $this->search . '%');
-            })
-            ->get();
+            });
+
+        if ($this->filterMonth) {
+            $query->whereMonth('created_at', $this->filterMonth);
+        }
+
+        if ($this->filterDate) {
+            $query->whereDate('created_at', $this->filterDate);
+        }
+
+        $data = $query->get();
 
         $pdf = Pdf::loadView('livewire.guru.hafalan.pdf', [
             'hafalan' => $data

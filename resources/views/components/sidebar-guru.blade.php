@@ -2,10 +2,10 @@
     <h1 class="text-xl font-semibold">Mutaba'ah</h1>
 
     <nav class="space-y-3"> 
-        <a href="#" class="block p-3 hover:bg-[#488d9f] rounded-lg">Dashboard</a>
-        <a href="#" class="block p-3 hover:bg-[#488d9f] rounded-lg">Setoran</a> 
-        <a href="#" class="block p-3 hover:bg-[#488d9f] rounded-lg">Hafalan</a>
-        <a href="#" class="block p-3 hover:bg-[#488d9f] rounded-lg">Settings</a>
+    <a href="{{ route('guru.dashboard') }}" class="block p-3 hover:bg-[#488d9f] rounded-lg">Dashboard</a>
+    <a href="{{ route('guru.setoran') }}" class="block p-3 hover:bg-[#488d9f] rounded-lg">Setoran</a>
+    <a href="{{ route('guru.hafalan') }}" class="block p-3 hover:bg-[#488d9f] rounded-lg">Hafalan</a>
+    <a href="{{ route('guru.settings') }}" class="block p-3 hover:bg-[#488d9f] rounded-lg">Settings</a>
     </nav>
 </aside>
 

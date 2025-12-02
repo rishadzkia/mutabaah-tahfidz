@@ -17,7 +17,7 @@
            
             <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
               <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                <img class="img-xs rounded-circle ms-2" src="{{ asset('assets/images/faces/face8.jpg') }}" alt="Profile image"> <span class="font-weight-normal"> Henry Klein </span></a>
+                <img class="img-xs rounded-circle ms-2" src="{{ asset('assets/images/faces/face8.jpg') }}" alt="Profile image"> <span class="font-weight-normal"> {{ Auth()->user()->name }}</span></a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                 
               <a class="dropdown-item" href=""><i class="dropdown-item-icon icon-power text-primary"></i>Sign Out</a>
