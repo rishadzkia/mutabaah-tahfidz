@@ -30,15 +30,17 @@
                             <td>{{ $item->guru->user->name }}</td>
                             <td>{{ $item->judul }}</td>
                             <td class="text-wrap" style="max-width: 300px;">
-                                {{ $item->isi }}
+                                {{ $item->isi }} 
                             </td>
 
                             <td class="d-flex gap-2">
-                                <button 
-                                    class="btn btn-sm btn-danger"
-                                    onclick="return confirm('Yakin ingin menghapus?')">
-                                    Hapus
+                               <button 
+                                class="btn btn-sm btn-danger"
+                                wire:click="destroy({{ $item->id }})"
+                                onclick="return confirm('Yakin ingin menghapus?')">
+                                Hapus
                                 </button>
+
 
                                 <a href="{{ route('guru.update.pengumuman', $item->id) }}" 
                                    class="btn btn-sm btn-outline-success">

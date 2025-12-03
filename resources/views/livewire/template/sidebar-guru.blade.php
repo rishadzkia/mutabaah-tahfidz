@@ -6,7 +6,7 @@
             <li class="nav-item nav-profile">
               <a href="#" class="nav-link">
                 <div class="profile-image">
-                  <img class="img-xs rounded-circle" src="{{ asset('assets/images/faces/face8.jpg') }}" alt="profile image">
+                  <img class="img-xs rounded-circle" src="https://ui-avatars.com/api/?name={{Auth::user()->name}}" alt="profile image">
                   
                 </div>
                 <div class="text-wrapper">

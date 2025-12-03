@@ -18,7 +18,7 @@
                     <input type="text" 
                         wire:model.live="search" 
                         class="form-control form-control-lg border-2 rounded-3 shadow-sm"
-                        placeholder="🔍 Cari nama siswa...">
+                        placeholder=" Cari nama siswa...">
                 </div>
 
                 <!-- Filter Section -->
@@ -63,10 +63,10 @@
                                 <tr>
                                     <td class="text-center">{{ $loop->iteration }}</td>
                                     <td>{{ $item->siswa->user->name }}</td>
-                                    <td>{{ $item->siswa->kelas }}</td>
+                                    <td>{{ $item->siswa->kelas }}</td> 
                                     <td>{{ $item->surah }}</td>
                                     <td>{{ $item->ayat }}</td>
-                                    <td>{{ $item->juz }}</td>
+                                    <td>{{ $item->juz }}</td> 
                                     <td>
                                         <select class="form-select form-select-sm border-2 rounded-3 shadow-sm" 
                                             wire:change="updateStatus({{ $item->id }}, $event.target.value)">
@@ -80,7 +80,7 @@
                                         <button class="btn btn-warning btn-sm px-3 py-2 rounded-3 shadow-sm" 
                                             wire:click="tandaiSiswa({{ $item->id }})"
                                             wire:confirm="Yakin ingin menandai siswa ini?">
-                                            <i class="icon-flag"></i> Tandai
+                                            <i class="icon-flag"></i> Tandai 
                                         </button>
                                     </td>
                                 </tr>

@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Dashboard extends Component
 {
-    #[Layout('components.layouts.base')]
+    #[Layout('components.layouts.base')] 
     public function render()
     {
         return view('livewire.guru.dashboard');

@@ -15,15 +15,21 @@ class Show extends Component
     {
         return view('livewire.guru.pengumuman.show');
     }
-    public function mount(){
+    public function mount(){ 
         $this->pengumuman = Pengumuman::with([
             'guru.user',
 
         ])->get();
     }
 
-    public function destroy(Request $request){
-        $request->delete();
-        return redirect()->route('guru.pengumuman')->with('success', 'Data berhasil dihapus');
+    public function destroy($id)
+    {
+        $pengumuman = Pengumuman::findOrFail($id);
+        $pengumuman->delete();
+
+        session()->flash('success', 'Data berhasil dihapus');
+
+     
+        $this->pengumuman = Pengumuman::with(['guru.user'])->get();
     }
 }

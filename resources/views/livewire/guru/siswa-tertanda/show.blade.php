@@ -29,7 +29,7 @@
                             @forelse ($siswaTertanda as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->siswa->user->name }}</td>
+                                    <td>{{ $item->siswa->user->name }}</td> 
                                     <td>{{ $item->siswa->kelas }}</td>
                                     <td>
                                         @if($item->hafalan)

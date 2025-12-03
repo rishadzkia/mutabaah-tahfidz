@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class KomentarPengumuman extends Model
-{
+class KomentarPengumuman extends Model 
+{ 
     protected $table = 'komentar_pengumuman';
     protected $fillable = [
         'pengumuman_id',
         'siswa_id',
         'komentar',
-    ];
+    ]; 
 
     public function pengumuman()
     {

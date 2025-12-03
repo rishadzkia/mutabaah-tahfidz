@@ -50,6 +50,22 @@
         button:hover {
             background: #45a049;
         }
+
+        .register-link {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .register-link a {
+            color: #1E88E5;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -59,11 +75,15 @@
         <h2>Login</h2>
         <form action="#" wire:submit.prevent="login" method="POST">
             <input type="email" wire:model="email" name="email" placeholder="Email" required />
-
             <input type="password" wire:model="password" name="password" placeholder="Password" required />
 
             <button type="submit">Login</button>
         </form>
+
+        <!-- LINK REGISTRASI KECIL -->
+        <div class="register-link">
+            Belum punya akun? <a href="{{ route('register') }}">Daftar di sini</a>
+        </div>
     </div>
 
 </body>

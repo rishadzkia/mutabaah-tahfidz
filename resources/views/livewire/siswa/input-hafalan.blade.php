@@ -1,22 +1,22 @@
-<div class="bg-white p-6 rounded-lg shadow-md">
+<div class="bg-white p-6 rounded-lg shadow-md"> 
 
     <h2 class="text-2xl font-semibold mb-6 text-gray-700"> 
         ✏️ Input Hafalan
     </h2>
 
-    <form wire:submit.prevent="simpan">  
+    <form wire:submit.prevent="simpan">                        
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
 
             <div>
                 <label class="block text-sm font-medium text-gray-600 mb-1">Tanggal</label>
                 <input type="date" wire:model="tanggal"
-                       class="w-full border-gray-300 rounded-md shadow-sm">
+                class="w-full border-gray-300 rounded-md shadow-sm"> 
             </div>
 
-            <div>
+            <div> 
                 <label class="block text-sm font-medium text-gray-600 mb-1">Surah/Juz</label>
                 <input type="text" wire:model="surah"
-                       class="w-full border-gray-300 rounded-md shadow-sm">
+                class="w-full border-gray-300 rounded-md shadow-sm"> 
             </div>
 
         </div> 
@@ -38,13 +38,13 @@
         </thead>
 
         <tbody class="divide-y divide-gray-200">
-            @foreach($hafalan as $row)
+            {{-- @foreach($hafalan as $row)
                 <tr>
                     <td class="px-4 py-3">{{ $row->tanggal }}</td>
                     <td class="px-4 py-3">{{ $row->surah }}</td>
                     <td class="px-4 py-3">{{ $row->ayat }}</td>
                 </tr>
-            @endforeach
+            @endforeach --}}
         </tbody>
     </table>
 

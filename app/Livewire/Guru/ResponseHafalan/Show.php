@@ -45,21 +45,21 @@ class Show extends Component
         $hafalan = Hafalan::find($hafalanId);
         if ($hafalan) {
             $hafalan->status = $status;
-            $hafalan->save();
+            $hafalan->save(); 
             session()->flash('message', 'Status berhasil diupdate!');
         }
     }
 
-    public function tandaiSiswa($hafalanId)
+    public function tandaiSiswa($hafalanId) 
     {
         $hafalan = Hafalan::with('siswa')->find($hafalanId);
         if ($hafalan) {
-            SiswaTertanda::firstOrCreate([
+            SiswaTertanda::firstOrCreate([ 
                 'siswa_id' => $hafalan->siswa_id,
-                'guru_id' => Auth::user()->id(),
-                'hafalan_id' => $hafalanId,
+                'guru_id' => Auth::user()->id(), 
+                'hafalan_id' => $hafalanId, 
                 'keterangan' => 'Ditandai dari response hafalan'
-            ]);
+            ]); 
             session()->flash('message', 'Siswa berhasil ditandai!');
         }
     }

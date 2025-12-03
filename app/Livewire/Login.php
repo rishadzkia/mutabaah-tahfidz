@@ -5,7 +5,7 @@ namespace App\Livewire;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
-class Login extends Component
+class Login extends Component 
 {
     public $email, $password;
     public function login()
@@ -22,7 +22,7 @@ class Login extends Component
             if (Auth::user()->role === 'guru') {
                 return redirect()->route('guru.dashboard');
             } elseif (Auth::user()->role === 'siswa') {
-                return redirect()->route('siswa.dashboard');
+                return redirect()->route('siswa.dashboard'); 
             }
         }
 
@@ -33,4 +33,4 @@ class Login extends Component
     {
         return view('livewire.login');
     }
-}
+} 

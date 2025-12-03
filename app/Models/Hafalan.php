@@ -19,8 +19,9 @@ class Hafalan extends Model
  
     ];
 
-    public function siswa(){
-        return $this->belongsTo(\App\Models\Siswa::class, 'siswa_id');
+    public function siswa()
+    {
+        return $this->belongsTo(Siswa::class, 'siswa_id');
     }
     // public function user()
     // {

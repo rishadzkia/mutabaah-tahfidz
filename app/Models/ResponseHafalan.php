@@ -13,7 +13,7 @@ class ResponseHafalan extends Model
         'is_marked', 
     ];
 
-    protected $casts = [
+    protected $casts = [ 
         'is_marked' => 'boolean',
     ];
 

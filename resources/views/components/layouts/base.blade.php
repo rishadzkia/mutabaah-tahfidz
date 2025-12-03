@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/vertical-light-layout/style.css') }}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/favicon.png" />
+        @livewireStyles
   </head>
   <body>
     <div class="container-scroller">
@@ -77,5 +78,6 @@
     <!-- Custom js for this page -->
     <script src="{{ asset('assets/js/dashboard.js')}}"></script>
     <!-- End custom js for this page -->
+        @livewireScripts 
   </body>
 </html>
