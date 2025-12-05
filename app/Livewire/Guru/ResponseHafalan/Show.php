@@ -54,7 +54,7 @@ class Show extends Component
     {
         $hafalan = Hafalan::with('siswa')->find($hafalanId);
         if ($hafalan) {
-            SiswaTertanda::firstOrCreate([ 
+            SiswaTertanda::Create([ 
                 'siswa_id' => $hafalan->siswa_id,
                 'guru_id' => Auth::user()->id(), 
                 'hafalan_id' => $hafalanId, 

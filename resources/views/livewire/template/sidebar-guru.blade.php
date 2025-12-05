@@ -29,28 +29,28 @@
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse"  href="{{ route('guru.hafalan') }}" wire:navigate aria-expanded="false" aria-controls="ui-basic" onclick="if(window.location.pathname.endsWith('guru/hafalan')){ location.reload(); }">
                   <span class="menu-title">Data Hafalan Siswa</span>
-                  <i class="icon-layers menu-icon"></i>
+                  <i class="icon-notebook menu-icon"></i>
                 </a>
               
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="{{ route('guru.responseHafalan') }}" wire:navigate aria-expanded="false" aria-controls="ui-basic" onclick="if(window.location.pathname.endsWith('guru/responseHafalan')){ location.reload(); }">
                   <span class="menu-title">Response Hafalan Siswa</span>
-                  <i class="icon-layers menu-icon"></i>
+                  <i class="icon-check menu-icon"></i>
                 </a>
               
             </li>
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse" href="{{ route('guru.siswaTertanda') }}" wire:navigate aria-expanded="false" aria-controls="ui-basic" onclick="if(window.location.pathname.endsWith('guru/siswaTertanda')){ location.reload(); }">
                 <span class="menu-title">Data Siswa Tertanda</span>
-                <i class="icon-layers menu-icon"></i>
+                <i class="icon-flag menu-icon"></i>
               </a>
               
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="{{ route('guru.pengumuman') }}" wire:navigate aria-expanded="false" aria-controls="ui-basic" onclick="if(window.location.pathname.endsWith('guru/pengumuman')){ location.reload(); }">
                   <span class="menu-title">Buat Pengumuman</span>
-                  <i class="icon-layers menu-icon"></i>
+                  <i class="icon-speech menu-icon"></i>
                 </a>
               
             </li>

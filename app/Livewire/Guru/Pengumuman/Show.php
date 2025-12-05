@@ -17,7 +17,7 @@ class Show extends Component
     }
     public function mount(){ 
         $this->pengumuman = Pengumuman::with([
-            'guru.user',
+            'guru.user', 
 
         ])->get();
     }

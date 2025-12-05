@@ -1,148 +1,52 @@
-<div class="card text-center">
-  <div class="card-header">
-    Murottal Surat Pilihan 
-  </div>
-  <div class="card-body">
-    <div class="accordion accordion-flush" id="accordionFlushExample">
-  <div class="accordion accordion-flush" id="accordionFlushExample">
+<div x-data> {{-- ROOT UTAMA Livewire --}}
 
-  <div class="accordion-item border rounded-3 mb-3 shadow-sm">
-      <h2 class="accordion-header"> 
-          <button class="accordion-button collapsed fw-semibold" 
-                  type="button" 
-                  data-bs-toggle="collapse" 
-                  data-bs-target="#flush-collapseOne">
-              🎧 Audio Bacaan 1
-          </button>
-      </h2>
+    <div class="card text-center">
+        <div class="card-header">
+            Murottal Surat Pilihan
+        </div>
 
-      <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">
+        <div class="card-body">
 
-              <!-- AUDIO PLAYER -->
-              <audio controls class="w-100 rounded-3 shadow-sm">
-    <source src="{{ asset('storage/audio/murottal/Al-Fatihah.mp3') }}" type="audio/mp3">
-</audio>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
 
+                @foreach ($murottal as $index => $item)
+                    <div class="accordion-item border rounded-3 mb-3 shadow-sm">
 
-              <!-- Deskripsi -->
-              <p class="mt-3 text-muted">
-                  Ini adalah contoh audio bacaan hafalan untuk siswa.
-              </p>
-          </div>
-      </div>
-  </div>
-  <div class="accordion-item border rounded-3 mb-3 shadow-sm">
-      <h2 class="accordion-header">
-          <button class="accordion-button collapsed fw-semibold" 
-                  type="button" 
-                  data-bs-toggle="collapse" 
-                  data-bs-target="#flush-collapseOne">
-              🎧 Audio Bacaan 1
-          </button>
-      </h2>
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed ayat-accordion"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#c{{ $index }}">
+                                <span class="flex-grow-1 fw-semibold">{{ $item->surah }}</span>
+                            </button>
+                        </h2>
 
-      <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body"> 
+                        <div id="c{{ $index }}" class="accordion-collapse collapse"
+                             data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
 
-              <!-- AUDIO PLAYER -->
-              <audio controls class="w-100 rounded-3 shadow-sm">
-    <source src="" type="audio/mp3"> 
-</audio>
+                                <!-- AUDIO PLAYER -->
+                                <audio controls class="w-100 rounded-3 shadow-sm">
+                                    <source src="{{ $item->file_url }}" type="audio/mp3">
+                                </audio>
 
- 
-              <!-- Deskripsi --> 
-              <p class="mt-3 text-muted">
-                  Ini adalah contoh audio bacaan hafalan untuk siswa.
-              </p>
-          </div>
-      </div>
-  </div>
-  <div class="accordion-item border rounded-3 mb-3 shadow-sm">
-      <h2 class="accordion-header">
-          <button class="accordion-button collapsed fw-semibold" 
-                  type="button" 
-                  data-bs-toggle="collapse" 
-                  data-bs-target="#flush-collapseOne">
-              🎧 Audio Bacaan 1
-          </button>
-      </h2>
+                                <!-- Deskripsi -->
+                                <p class="mt-3 text-muted">
+                                    {{ $item->qari_name }}
+                                </p>
 
-      <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body"> 
+                            </div>
+                        </div>
 
-              <!-- AUDIO PLAYER -->
-              <audio controls class="w-100 rounded-3 shadow-sm">
-    <source src="" type="audio/mp3"> 
-</audio>
+                    </div>
+                @endforeach
 
- 
-              <!-- Deskripsi --> 
-              <p class="mt-3 text-muted">
-                  Ini adalah contoh audio bacaan hafalan untuk siswa.
-              </p>
-          </div>
-      </div>
-  </div>
-  <div class="accordion-item border rounded-3 mb-3 shadow-sm">
-      <h2 class="accordion-header">
-          <button class="accordion-button collapsed fw-semibold" 
-                  type="button" 
-                  data-bs-toggle="collapse" 
-                  data-bs-target="#flush-collapseOne">
-              🎧 Audio Bacaan 1
-          </button>
-      </h2>
+            </div>
 
-      <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body"> 
+        </div>
 
-              <!-- AUDIO PLAYER -->
-              <audio controls class="w-100 rounded-3 shadow-sm">
-    <source src="" type="audio/mp3"> 
-</audio>
+        <div class="card-footer text-body-secondary">
+        </div>
+    </div>
 
- 
-              <!-- Deskripsi --> 
-              <p class="mt-3 text-muted">
-                  Ini adalah contoh audio bacaan hafalan untuk siswa.
-              </p>
-          </div>
-      </div>
-  </div>
-  <div class="accordion-item border rounded-3 mb-3 shadow-sm">
-      <h2 class="accordion-header">
-          <button class="accordion-button collapsed fw-semibold" 
-                  type="button" 
-                  data-bs-toggle="collapse" 
-                  data-bs-target="#flush-collapseOne">
-              🎧 Audio Bacaan 1
-          </button>
-      </h2>
-
-      <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body"> 
-
-              <!-- AUDIO PLAYER -->
-              <audio controls class="w-100 rounded-3 shadow-sm">
-    <source src="" type="audio/mp3"> 
-</audio>
-
- 
-              <!-- Deskripsi --> 
-              <p class="mt-3 text-muted">
-                  Ini adalah contoh audio bacaan hafalan untuk siswa.
-              </p>
-          </div>
-      </div>
-  </div>
-
-</div>
-
-  
-</div>
-  </div>
-  <div class="card-footer text-body-secondary">
-   
-  </div>
 </div>

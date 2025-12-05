@@ -29,21 +29,21 @@
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse"  href="{{ route('siswa.show-hafalan') }}" wire:navigate aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Input Hafalan</span>
-                <i class="icon-book-open menu-icon"></i> 
+                <i class="icon-note menu-icon"></i> 
               </a> 
               
             </li>
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse"  href="{{ route('siswa.show-komentar') }}" wire:navigate aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Pengumuman</span>
-                <i class="icon-book-open menu-icon"></i>
+                <i class="icon-bell menu-icon"></i>
               </a>
               
             </li>
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse"  href="{{ route('siswa.show-murottal') }}" wire:navigate aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Murottal Surat Pilihan</span>
-                <i class="icon-book-open menu-icon"></i>
+                <i class="icon-control-play menu-icon"></i>
               </a>
               
             </li>

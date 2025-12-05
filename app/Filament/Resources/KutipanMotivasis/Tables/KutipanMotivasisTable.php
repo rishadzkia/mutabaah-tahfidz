@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\KutipanMotivasis\Tables;
 
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\ImageColumn;
@@ -18,7 +19,12 @@ class KutipanMotivasisTable
             TextColumn::make('user.name')
               
                 ->sortable(),
-                ImageColumn::make('image_url'),
+                ImageColumn::make('image_url')
+                ->label('Gambar')
+                ->getStateUsing(fn($record)=> asset('storage/motivasi/' . $record->image_url))
+                ->square()
+                ->width(60)
+                ->height(60),
                 TextColumn::make('sumber')
                     ->searchable(),
                 TextColumn::make('teks_kutipan')
@@ -37,6 +43,7 @@ class KutipanMotivasisTable
             ])
             ->recordActions([
                 EditAction::make(),
+                DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,7 +16,7 @@
       rel="stylesheet"
     /> 
     <style>  
-      .font-satu {  
+      .font-satu {   
         font-family: "Lato", sans-serif;  
       } 
       .font-dua{  
@@ -31,8 +31,12 @@
       <div
         class="container mx-auto flex justify-between items-center py-4 px-6"
       >
-        {{-- <img src="logo.png" alt="" class="h-10" /> --}}
-        <h2>MutabaahQ</h2>
+        {{-- <img src="{{ asset('img/logo_mutabaah.png') }}" alt="" class="h-20" /> --}}
+        <a href="#home" class="flex items-center space-x-2">
+      <span class="text-2xl font-bold text-[#216679]">☪</span>
+      <span class="text-xl font-semibold text-[#216679]">MutabaahQ</span>
+    </a>
+       
 
         <ul class="hidden md:flex space-x-6 font-semibold">
           <li>
@@ -57,26 +61,37 @@
 
     <!-- HERO -->
     <section
-      id="home"
-      class="bg-[url({{ asset('img/quran-header.jpg') }})] bg-cover bg-center h-screen flex items-center justify-center text-white relative"
-    >
-      <div class="absolute inset-0 bg-[#216679]/75"></div>
+    id="home"
+    class="relative h-screen bg-cover bg-center flex items-center justify-center text-white"
+    style="background-image: url('{{ asset('img/quran-header.jpg') }}')"
+>
+    <!-- Gradient Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[#123c47]/80 via-[#144f5b]/70 to-[#216679]/80"></div>
 
-      <div class="z-10 text-center px-6">
-       <img src="{{ asset('img/logo_mutabaah.png') }}" alt="" class="w-5  mx-auto mb-4" />
-        <p class="text-lg md:text-xl mb-6 opacity-90 max-w-2xl mx-auto">
-          Solusi digital untuk pencatatan hafalan yang mudah, efisien, tanpa
-          buku, dan mendukung digitalisasi tahfidz
+    <!-- Content -->
+    <div class="relative z-10 text-center px-6 max-w-3xl mx-auto animate-fadeIn">
+        
+        <!-- Logo (optional) -->
+        {{-- <img src="{{ asset('img/logo_mutabaah.png') }}" alt="" class="w-28 mx-auto mb-6 drop-shadow-lg" /> --}}
+
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-4 tracking-wide drop-shadow-lg">
+            ☪ Mutabaah<span class="text-[#a7e4ee]">Q</span>
+        </h1>
+
+        <p class="text-lg md:text-2xl mb-8 leading-relaxed text-gray-100 opacity-95">
+            Solusi digital untuk pencatatan hafalan yang mudah, efisien,
+            tanpa buku, dan mendukung digitalisasi tahfidz.
         </p>
 
         <a
-          href="{{ route('register') }}"
-          class="bg-[#7ab8c3] hover:bg-white hover:text-[#216679] transition duration-300 px-6 py-3 rounded-lg font-bold shadow-lg"
+            href="{{ route('register') }}"
+            class="bg-[#7ab8c3] hover:bg-white hover:text-[#216679] transition-all duration-300 px-8 py-3 rounded-xl font-bold shadow-xl drop-shadow-lg hover:scale-105"
         >
-          Ayo Bergabung!
+            Ayo Bergabung!
         </a>
-      </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- STOK -->
     <section

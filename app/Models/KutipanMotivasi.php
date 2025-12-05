@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 class KutipanMotivasi extends Model 
 {
-    protected $table = 'motivations';
-   
+    protected $table = 'motivations'; 
+
 
     protected $fillable = [  
-        'user_id',
+        'user_id', 
         'image_url',  
-        'teks_kutipan',
+        'teks_kutipan', 
         'sumber',
     ];
 

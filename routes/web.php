@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\Auth\LoginController;
@@ -31,7 +31,7 @@ Route::get('/dashboard', Dashboard::class);
 
 // Siswa
 Route::prefix('siswa')->middleware(['auth', 'siswa'])->group(function () {
-    Route::get('dashboard', SiswaDashboard::class)->name('siswa.dashboard');
+    Route::get('dashboard', SiswaDashboard::class)->name('siswa.dashboard'); 
     Route::get('hafalan', InputHafalanShow::class)->name('siswa.show-hafalan');
     Route::get('createHafalan', InputHafalanCreate::class)->name('siswa.create-hafalan');
     Route::get('updateHafalan/{id}', InputHafalanUpdate::class)->name('siswa.update-hafalan');
@@ -55,5 +55,5 @@ Route::prefix('guru')->middleware(['auth', 'guru'])->group(function () {
 });
 
 // Login
-Route::get('/login', Login::class)->name('login');
+Route::get('/login', Login::class)->name('login'); 
 Route::get('/register', Register::class)->name('register');

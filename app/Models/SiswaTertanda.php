@@ -12,8 +12,9 @@ class SiswaTertanda extends Model
     protected $table = 'siswa_tertanda';
  
     protected $fillable = [
-        'siswa_id',
         'guru_id',
+        'siswa_id',
+        
         'hafalan_id',
         'keterangan',
     ];

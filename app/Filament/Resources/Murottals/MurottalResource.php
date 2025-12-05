@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Filament\Resources\Murottals;
-
 use App\Filament\Resources\Murottals\Pages\CreateMurottal;
 use App\Filament\Resources\Murottals\Pages\EditMurottal;
 use App\Filament\Resources\Murottals\Pages\ListMurottals;

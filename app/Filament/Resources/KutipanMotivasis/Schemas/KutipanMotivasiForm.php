@@ -14,10 +14,19 @@ class KutipanMotivasiForm
         return $schema
             ->components([
                 TextInput::make('user_id')
-                    ->required()
-                    ->numeric(),
+                   ->label('Nomor')
+                    ->required(),
+                   
                 FileUpload::make('image_url')
-                    ->image(),
+                    ->image()
+                    ->disk('public')
+                    ->directory('motivasi')
+                    ->required()
+                    ->maxSize(4096)
+                    ->helperText('Ukuran maksimal file 4MB.')
+                    ->dehydrateStateUsing(function($state){
+                        return $state ? basename($state) : null;
+                    }),
                 Textarea::make('teks_kutipan')
                   
                     ->columnSpanFull(),

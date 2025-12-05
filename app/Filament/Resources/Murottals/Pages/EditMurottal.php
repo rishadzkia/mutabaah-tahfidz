@@ -12,8 +12,12 @@ class EditMurottal extends EditRecord
 
     protected function getHeaderActions(): array
     {
-        return [
+        return [ 
             DeleteAction::make(),
         ];
+    }
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
     }
 }
